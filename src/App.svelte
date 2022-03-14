@@ -1,6 +1,7 @@
 <script>
 import Emoji from "./Components/Emoji.svelte";
 import Numbers from "./Components/Number.svelte";
+import Outer from "./Components/Outer.svelte"
 
 	import Section from "./Components/Section.svelte";
 
@@ -36,6 +37,7 @@ import Numbers from "./Components/Number.svelte";
 	<Numbers {...spreadExample}/>
 
 	<Section title="reactivity" text="Reactivity is done through assignments"/>
+	<p>inline handler</p>
 	<button on:click={() => counter++}>Stuff happens when im pressed. {counter === 0? "" :`${counter} clicks`}</button>
 	{#if counter >= 10}
 		<p>you pressed the button 10 or more times</p>
@@ -59,6 +61,8 @@ import Numbers from "./Components/Number.svelte";
 	{/each}
 <button on:click={removeFirstEmoji}>Remove first emoji</button>
 
+<Section title="events"/>
+<Outer on:custom-event={(event)=> alert(event.detail.someData)}/>
 
 
 </main>
